@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+        <title>Flung into Space</title>
+    </head>
+    <body>
+        <a-scene>
+            <!-- Set the sky -->
+            <a-sky color="black"></a-sky>
+            
+            <!-- Stars -->
+            <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="-10 10 -100"
+                to="-10 10 100"
+                repeat="indefinite"
+                ></a-animation>
+            </a-sphere>
+            
+            <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="15 10 -100"
+                to="15 -10 100"
+                repeat="indefinite"
+                begin="10"
+                ></a-animation>
+            </a-sphere>
+
+             <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="0 15 -100"
+                to="0 15 100"
+                repeat="indefinite"
+                begin="15"
+                ></a-animation>
+            </a-sphere>
+
+             <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="7 0 -100"
+                to="7 0 100"
+                repeat="indefinite"
+                begin="25"
+                ></a-animation>
+            </a-sphere>
+
+             <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="-7 -6 -100"
+                to="-7 -6 100"
+                repeat="indefinite"
+                begin="20"
+                ></a-animation>
+            </a-sphere>
+            
+             <a-sphere radius="0.5" color="white">
+                <a-animation
+                attribute="position"
+                from="-15 0 -100"
+                to="-15 0 100"
+                repeat="indefinite"
+                ></a-animation>
+            </a-sphere>
+            
+        </a-scene>
+    </body>
+</html>

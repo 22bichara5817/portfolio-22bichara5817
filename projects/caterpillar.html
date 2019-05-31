@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Caterpillar</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/a818e45667427600634e9e44b17902f1a5d48243/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Caterpillar</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    var NUM_CIRCLES = 15;
+
+// This graphics program should draw a caterpillar. A caterpillar has NUM_CIRCLES
+// circles. Every other circle is a different color, the even circles are red, and
+// the odd circles are green. Use a for loop to draw the caterpillar, centered 
+// vertically in the screen.
+function start(){
+    var red = new Color(255,0,0);
+    var green = new Color(0,255,0);
+    var position1 = 15;
+    var position2 = 45;
+    
+    
+    for(NUM_CIRCLES; NUM_CIRCLES > 0; NUM_CIRCLES--){
+      if(NUM_CIRCLES % 2 == 0){
+        var circle1 = new Circle(15);
+        circle1.setPosition(position1, 200);
+        circle1.setColor(red);
+        add(circle1);
+        position1 = (position1 + 60);
+      }else{
+     var circle2 = new Circle(15);
+     circle2.setPosition(position2, 200);
+     circle2.setColor(green);
+     add(circle2);
+     position2 = (position2 + 60);
+    }
+  }
+	
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>

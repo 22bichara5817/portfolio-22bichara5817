@@ -1,0 +1,471 @@
+<html>
+<head>
+<title>Pac-Man Maze</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/a818e45667427600634e9e44b17902f1a5d48243/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Pac-Man Maze</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    var centerw = getWidth()/2;
+var centerh = getHeight()/2;
+var space = 5;
+var fspace = 30;
+
+function start(){
+    var pink = "#FF69B4";
+    drawMaze(0,0);
+    drawPacman(centerw, centerh + 160);
+    drawGhost(centerw, centerh - 60, Color.red);
+    drawGhost(centerw - 30, centerh, Color.cyan);
+    drawGhost(centerw, centerh, pink);
+    drawGhost(centerw + 30, centerh, Color.orange);
+    
+    
+
+}
+
+
+
+function drawMaze(x , y){
+    var x = 30;
+    var y = 440;
+    var background = new Rectangle(getWidth(), getHeight());
+    background.setPosition(0, 0);
+    background.setColor(Color.black);
+    add(background); 
+    drawBox(0,0);
+    drawTHR(centerw + 135, centerh - 50);
+    drawTHL(centerw - 135, centerh - 120);
+    drawTHT(centerw - 45, centerh - 160);
+    drawTHT(centerw - 45, centerh + 180);
+    drawTHT(centerw - 45, centerh + 70);
+    drawBlock(centerw - 135 , centerh + 20);
+    drawBlock(centerw + 115, centerh + 20);
+    drawRect(centerw - 135, centerh + 120);
+    drawRect(centerw + 55, centerh + 120);
+    var foodcolor = "#EAD61C";
+    for(var i = 0; i <= 22; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y -= 20
+    }
+    for(var i = 0; i <= 23; i++){
+        y += 20
+       var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(400 - x, y);
+        add(food);
+    }
+    for(var i = 0; i <= 0; i++){
+    var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+        
+}
+x = 350;
+        for(var i = 0; i <= 0; i++){
+        x += 20;
+    var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+}
+y = 60;
+    for(var i = 0; i <= 17; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x -= 20;
+}
+x = 170;
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y -= 20;
+    }
+x = 230;
+y = 60;
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y -= 20;
+    }
+    x = 30;
+    y = 400;
+    for(var i = 0; i <= 7; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+    }
+    x += 40;
+    for(var i = 0; i <= 7; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+    }
+    x = 170
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y -= 20;
+    }
+    y += 20;
+    x = 230;
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y += 20;
+    }
+    y -= 80;
+    for(var i = 0; i <= 7; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+    }
+    x = 30;
+    for(var i = 0; i <= 7; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+    }
+    x = 110;
+    y = 400
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y += 20;
+    }
+    x = 290;
+    y = 400
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        y += 20;
+    }
+    x = 110;
+    y = 460
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x += 20;
+    }
+    x = 290;
+    y = 460
+    for(var i = 0; i <= 3; i++){
+        var food = new Circle(5);
+        food.setColor(foodcolor);
+        food.setPosition(x, y);
+        add(food);
+        x -= 20;
+    }
+    var t9i = new Line(centerw - 10, centerh - 200, centerw + 10, centerh - 200);
+    t9i.setColor(Color.blue);
+    add(t9i);
+    var t10i = new Line(centerw - 10, centerh - 200, centerw - 10, centerh - 300);
+    t10i.setColor(Color.blue);
+    add(t10i);
+    var t11i = new Line(centerw + 10, centerh - 200, centerw + 10, centerh - 300);
+    t11i.setColor(Color.blue);
+    add(t11i);
+    var t12 = new Rectangle(100, 50);
+    t12.setPosition(50, 0);
+    t12.setColor(Color.blue);
+    add(t12);
+    var t13 = new Rectangle(96, 48);
+    t13.setPosition(52, 0);
+    t13.setColor(Color.black);
+    add(t13);
+    var t14 = new Rectangle(100, 50);
+    t14.setPosition(250, 0);
+    t14.setColor(Color.blue);
+    add(t14);
+    var t15= new Rectangle(96, 48);
+    t15.setPosition(252, 0);
+    t15.setColor(Color.black);
+    add(t15);
+    var t16 = new Rectangle(20, 100);
+    t16.setPosition(315, 420);
+    t16.setColor(Color.blue);
+    add(t16);
+    var t17= new Rectangle(16, 98);
+    t17.setPosition(317, 422);
+    t17.setColor(Color.black);
+    add(t17);
+    var t16 = new Rectangle(20, 100);
+    t16.setPosition(65, 420);
+    t16.setColor(Color.blue);
+    add(t16);
+    var t17= new Rectangle(16, 98);
+    t17.setPosition(67, 422);
+    t17.setColor(Color.black);
+    add(t17);
+    
+    
+}
+
+
+
+
+
+function drawGhost(centerX, centerY, color){
+    var head = new Circle(15*2/3);
+    head.setPosition(centerX, centerY);
+    head.setColor(color);
+    add(head);
+    var body = new Rectangle(30*2/3, 20*2/3);
+    body.setPosition(centerX - 15*2/3, centerY);
+    body.setColor(color);
+    add(body);
+    var foot2 = new Circle(5*2/3);
+    foot2.setPosition(centerX, centerY + 20*2/3);
+    foot2.setColor(color);
+    add(foot2);
+    var foot1 = new Circle(5*2/3);
+    foot1.setPosition(centerX - 10*2/3, centerY + 20*2/3);
+    foot1.setColor(color);
+    add(foot1);
+    var foot3 = new Circle(5*2/3);
+    foot3.setPosition(centerX + 10*2/3, centerY + 20*2/3);
+    foot3.setColor(color);
+    add(foot3);
+    var eye1 = new Circle(5*2/3);
+    eye1.setPosition(centerX - 6*2/3, centerY);
+    eye1.setColor(Color.white);
+    add(eye1);
+    var eye2= new Circle(5*2/3);
+    eye2.setPosition(centerX + 6*2/3, centerY);
+    eye2.setColor(Color.white);
+    add(eye2);
+    var eye2= new Circle(5*2/3);
+    eye2.setPosition(centerX + 6*2/3, centerY);
+    eye2.setColor(Color.white);
+    add(eye2);
+    var in1= new Circle(1.5*2/3);
+    in1.setPosition(centerX + 9*2/3, centerY);
+    in1.setColor(Color.blue);
+    add(in1);
+    var in2= new Circle(1.5*2/3);
+    in2.setPosition(centerX - 3*2/3, centerY);
+    in2.setColor(Color.blue);
+    add(in2);
+}
+function drawPacman(x, y){
+    var body = new Arc(15, 30, 330, 0);
+    body.setPosition(x, y);
+    body.setColor(Color.yellow);
+    add(body);
+    var eye = new Circle(1.5);
+    eye.setPosition(x + 2.5, y - 9);
+    eye.setColor(Color.black);
+    add(eye);
+}
+
+
+function drawBox(x, y){
+    var box1out = new Line(centerw - 50, centerh - 30, centerw + 50, centerh - 30);
+    box1out.setColor(Color.blue);
+    add(box1out);
+    var box2out = new Line(centerw - 50, centerh - 30, centerw - 50, centerh + 30);
+    box2out.setColor(Color.blue);
+    add(box2out);
+    var box3out = new Line(centerw - 50, centerh + 30, centerw + 50, centerh + 30);
+    box3out.setColor(Color.blue);
+    add(box3out);
+    var box4out = new Line(centerw + 50, centerh + 30, centerw + 50, centerh - 30);
+    box4out.setColor(Color.blue);
+    add(box4out);
+    var box1in = new Line(centerw - 45, centerh - 25, centerw + 45, centerh - 25);
+    box1in.setColor(Color.blue);
+    add(box1in);
+    var box2in = new Line(centerw - 45, centerh - 25, centerw - 45, centerh + 25);
+    box2in.setColor(Color.blue);
+    add(box2in);
+    var box3in = new Line(centerw - 45, centerh + 25, centerw + 45, centerh + 25);
+    box3in.setColor(Color.blue);
+    add(box3in);
+    var box4in = new Line(centerw + 45, centerh + 25, centerw + 45, centerh - 25);
+    box4in.setColor(Color.blue);
+    add(box4in);
+    var open = new Line(centerw - 20, centerh - 27.5, centerw + 20, centerh - 27.5);
+    open.setColor(Color.white);
+    open.setLineWidth(space);
+    add(open);
+}
+
+function drawTHR(x, y){
+    var t1i = new Line(x, y + 50, x, y - 100);
+    t1i.setColor(Color.blue);
+    add(t1i); 
+    var t2i = new Line(x, y - 100, x - 20, y - 100);
+    t2i.setColor(Color.blue);
+    add(t2i);
+    var t3i = new Line(x, y + 50, x - 20, y + 50);
+    t3i.setColor(Color.blue);
+    add(t3i);
+    var t4i = new Line(x - 20, y + 50, x - 20, y - 25);
+    t4i.setColor(Color.blue);
+    add(t4i);
+    var t5i = new Line(x - 20, y - 45, x - 20, y - 100);
+    t5i.setColor(Color.blue);
+    add(t5i);
+    var t6i = new Line(x - 20, y - 45, x - 70, y - 45);
+    t6i.setColor(Color.blue);
+    add(t6i);
+    var t7i = new Line(x - 20, y - 25, x - 70, y - 25);
+    t7i.setColor(Color.blue);
+    add(t7i);
+    var t8i = new Line(x - 70, y - 25, x - 70, y - 45);
+    t8i.setColor(Color.blue);
+    add(t8i);
+}
+
+function drawTHL(x, y){
+    var t1i = new Line(x, y - 30, x, y + 120);
+    t1i.setColor(Color.blue);
+    add(t1i); 
+    var t2i = new Line(x, y + 120, x + 20, y + 120);
+    t2i.setColor(Color.blue);
+    add(t2i);
+    var t3i = new Line(x, y - 30, x + 20, y - 30);
+    t3i.setColor(Color.blue);
+    add(t3i);
+    var t4i = new Line(x + 20, y - 30, x + 20, y + 25);
+    t4i.setColor(Color.blue);
+    add(t4i);
+    var t5i = new Line(x + 20, y + 45, x + 20, y + 120);
+    t5i.setColor(Color.blue);
+    add(t5i);
+    var t6i = new Line(x + 20, y + 45, x + 70, y + 45);
+    t6i.setColor(Color.blue);
+    add(t6i);
+    var t7i = new Line(x + 20, y + 25, x + 70, y + 25);
+    t7i.setColor(Color.blue);
+    add(t7i);
+    var t8i = new Line(x + 70, y + 25, x + 70, y + 45);
+    t8i.setColor(Color.blue);
+    add(t8i);
+}
+
+function drawTHT(x, y){
+    var t1i = new Line(x - 30, y, x + 120, y);
+    t1i.setColor(Color.blue);
+    add(t1i); 
+    var t2i = new Line(x + 120, y, x + 120, y + 20);
+    t2i.setColor(Color.blue);
+    add(t2i);
+    var t3i = new Line(x - 30, y, x - 30, y + 20);
+    t3i.setColor(Color.blue);
+    add(t3i);
+    var t4i = new Line(x - 30, y + 20, x + 35, y + 20);
+    t4i.setColor(Color.blue);
+    add(t4i);
+    var t5i = new Line(x + 55, y + 20, x + 120, y + 20);
+    t5i.setColor(Color.blue);
+    add(t5i);
+    var t6i = new Line(x + 55, y + 20, x + 55, y + 70);
+    t6i.setColor(Color.blue);
+    add(t6i);
+    var t7i = new Line(x + 35, y + 20, x + 35, y + 70);
+    t7i.setColor(Color.blue);
+    add(t7i);
+    var t8i = new Line(x + 35, y + 70, x + 55, y + 70);
+    t8i.setColor(Color.blue);
+    add(t8i);
+    
+}
+
+function drawBlock(x, y){
+    var b1 = new Line(x, y, x, y + 60);
+    b1.setColor(Color.blue);
+    add(b1);
+    var b2 = new Line(x, y + 60, x + 20, y + 60);
+    b2.setColor(Color.blue);
+    add(b2);
+    var b3 = new Line(x + 20, y + 60, x + 20, y);
+    b3.setColor(Color.blue);
+    add(b3);
+    var b4 = new Line(x + 20, y, x, y);
+    b4.setColor(Color.blue);
+    add(b4);
+}
+
+function drawRect(x, y){
+var rect = new Rectangle(80, 20);
+rect.setPosition(x, y);
+rect.setColor(Color.blue);
+add(rect);
+var black = new Rectangle(76, 16);
+black.setPosition(x + 2, y + 2);
+black.setColor(Color.black);
+add(black);
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
